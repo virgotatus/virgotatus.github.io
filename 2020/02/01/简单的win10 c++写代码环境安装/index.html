@@ -137,38 +137,26 @@
     </div>
     <div class="post-content no-indent">
         <p>在这个新冠病毒的假期，无聊到想刷题。笔记本电脑刚刚重装过，想要安装一个简单的c++编译环境开始刷题。</p>
-<h3 id="有两个概念要分开"><a href="#有两个概念要分开" class="headerlink" title="有两个概念要分开"></a>有两个概念要分开</h3><ol>
-<li>编译器</li>
-</ol>
+<h3 id="有两个概念要分开"><a href="#有两个概念要分开" class="headerlink" title="有两个概念要分开"></a>有两个概念要分开</h3><p>1.编译器</p>
 <p>简单的层级思路：<br><em>cpu底层汇编代码&lt;-操作系统(windows\linux)&lt;-高级编程语言(c++\python)</em><br>编译器将高级编程语言翻译成机器语言，通过操作系统的接口来操作这台电脑。</p>
 <p>c++语言的编译器在windows中有MSVC(microsoft 的VC编译器)以及MingGW</p>
 <blockquote>
 <p>(Minimalist GNU on Windows，一个可自由使用和自由发布的Windows特定头文件和使用GNU工具集导入库的集合，允许你在GNU/Linux和Windows平台生成本地的Windows程序而不需要第三方C运行时库)</p>
 </blockquote>
-<ol start="2">
-<li>编译开发的环境IDE</li>
-</ol>
+<p>2.编译开发的环境IDE</p>
 <p>就是方便程序员写代码的环境，包括缩进，自动弹出代码，搜索代码，新建文件等等操作的一个软件程序。IDE挺多的，visual studio code，VS2008/2010/2017…，qtcreator(linux)等等都是IDE。就跟搞CAD也有不同的软件一样。</p>
-<ol start="3">
-<li>有时候IDE和编译器是在一起的，有时候也是可以分开的</li>
-</ol>
+<p>3.有时候IDE和编译器是在一起的，有时候也是可以分开的</p>
 <ul>
 <li>在一起的：比如你下载visual studio 2008/2010/2013…这种很大很大装一天(10几个G)的东西，装完了他就是既有编译器(MSVC)也有IDE，你就不需要装别的东西了，傻瓜但是慢。</li>
 <li>可以分开：如果你选择Microsoft的visual studio code(他就是个良心IDE)，就需要另外配置他的编译器路径，可以选择MSVC路径或者mingw等其他编译器的路径。相对自由开放可配置一些(甚至可以下载pythonIDE插件写python代码，如果有python编译器的话/c#等同理)。</li>
 </ul>
 <p>比较喜欢第二种分开的方式，这样一个IDE配不同的编译器，灵活地耦合。所以本文选择 vs code+mingw的方式。</p>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><ol>
-<li>vs code 安装</li>
-</ol>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>1.vs code 安装</p>
 <p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a><br>装装装，装完以后下载插件<br><img src="https://upload-images.jianshu.io/upload_images/564376-ae88360a8828dc56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ol start="2">
-<li>安装编译器 mingw </li>
-</ol>
+<p>2.安装编译器 mingw </p>
 <p>看看这篇vs code 文档，照着做就行了。<a href="https://code.visualstudio.com/docs/cpp/config-mingw" target="_blank" rel="noopener">https://code.visualstudio.com/docs/cpp/config-mingw</a><br>mingw在线安装地址<a href="http://mingw-w64.org/doku.php/download/mingw-builds" target="_blank" rel="noopener">http://mingw-w64.org/doku.php/download/mingw-builds</a><br>这里有个坑：上网查了一下解决了，很神奇。就是在线安装mingw-w64-install.exe的时候，用wifi会错误：cannot download repository.txt。翻墙下载或者用管理员打开都不行。有篇博客说用手机热点下载，试了一下竟然可以。。好神奇，但是下载了几个小时。尴尬，跟visualstudio有一拼。</p>
 <p>注意：下载完后设置系统路径 我的电脑-&gt;属性-&gt;环境变量-&gt;path设置。vs code文档里有写。</p>
-<ol start="3">
-<li>好吧接下来就是翻译vs code文档里的内容了</li>
-</ol>
+<p>3.好吧接下来就是翻译vs code文档里的内容了</p>
 <p>照做：1.check mingw安装成功。打开cmd或者windows powershell。g++ –version能看版本就成功。注：g++和gcc不同<a href="https://www.cnblogs.com/oxspirt/p/6847438.html" target="_blank" rel="noopener">https://www.cnblogs.com/oxspirt/p/6847438.html</a> 2.创建工程文件夹、创建cpp文件 3.build cpp 编译。在task.json文件中设置编译参数 4.debug，在launch.json中设置。5.打断点，看变量框等等。。。<br>然后就可以debug代码了，好好刷题天天向上</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/564376-063c719309ac486f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
